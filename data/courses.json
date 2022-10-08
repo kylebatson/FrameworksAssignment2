@@ -1,0 +1,50 @@
+[
+    {
+        "course_id":1,
+        "course_name":"Comp 112 - Test",
+        "course_description":"Loremsian aiosnd iaoundf",
+        "course_recommendation_count":25,
+        "course_access_count":25,
+        "course_image":"../images/review.png"
+    },
+    {
+        "course_id":2,
+        "course_name":"Compiler Theory",
+        "course_description":"Compiler construction is an area of computer science that deals with the theory and practice of developing programming languages and their associated compilers.",
+        "course_recommendation_count":43,
+        "course_access_count":543,
+        "course_image":"../images/review.png"
+    },
+    {
+        "course_id":3,
+        "course_name":"Comp 112 - Desala",
+        "course_description":"Loremsian aiosnd iaoundf",
+        "course_recommendation_count":25,
+        "course_access_count":25,
+        "course_image":"../images/review.png"
+    },
+    {
+        "course_id":4,
+        "course_name":"Comp 112 - Desala",
+        "course_description":"Loremsian aiosnd iaoundf",
+        "course_recommendation_count":25,
+        "course_access_count":25,
+        "course_image":"../images/review.png"
+    },
+    {
+        "course_id":5,
+        "course_name":"Comp 112 - Desala",
+        "course_description":"Loremsian aiosnd iaoundf",
+        "course_recommendation_count":25,
+        "course_access_count":25,
+        "course_image":"../images/review.png"
+    },
+    {
+        "course_id":6,
+        "course_name":"Comp 112 - Desala",
+        "course_description":"Loremsian aiosnd iaoundf",
+        "course_recommendation_count":25,
+        "course_access_count":25,
+        "course_image":"../images/review.png"
+    }
+]
