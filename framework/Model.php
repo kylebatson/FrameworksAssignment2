@@ -4,9 +4,9 @@
     protected $json_data;
 
     //Creates a connection to JSON file and stores data as array
-    public function __construct(){
+    public function __construct($filename){
         // Read the JSON file 
-        $json = file_get_contents(ROOT_DIR . '/data/courses.json');
+        $json = file_get_contents(ROOT_DIR . '/data/'.$filename.'.json');
                             
         // Decode the JSON file
         $this -> json_data = json_decode($json,true);

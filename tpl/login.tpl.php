@@ -9,23 +9,24 @@
 		<nav>
 			<a href="#"><img src="images/logo.png" alt="UWI online"></a>
 			<ul>
-				<li><a href="index.php?controller=Courses">Courses</a></li>
-				<li><a href="index.php?controller=Streams">Streams</a></li>
-				<li><a href="index.php?controller=AboutUs">About Us</a></li>
-				<li><a href="index.php?controller=Login">Login</a></li>
-				<li><a href="index.php?controller=SignUp">Sign Up</a></li>
+				<li><a href="courses.php">Courses</a></li>
+				<li><a href="streams.php">Streams</a></li>
+				<li><a href="aboutus.php">About Us</a></li>
+				<li><a href="login.php">Login</a></li>
+				<li><a href="signup.php">Sign Up</a></li>
 			</ul>
 		</nav>
 		<main>
 		   <div class="login-box">
 			<div class="login-box-body">
 			<p class="login-box-msg">Be Curious - Sign In</p>
-			<form action="#" method="post">
+			
+			<form action="authenticate.php" method="POST">
 			  <div class="form-group has-feedback">
-				<input type="text" class="form-control" placeholder="Email"/>
+				<input type="text" name="email" class="form-control" placeholder="Email"/>
 			  </div>
 			  <div class="form-group has-feedback">
-				<input type="password" class="form-control" placeholder="Password"/>
+				<input type="password" name="password" class="form-control" placeholder="Password"/>
 			  </div>
 			  <div class="row">
 				<div class="col-xs-8">    
@@ -40,8 +41,18 @@
 				</div><!-- /.col -->
 			  </div>
 			</form>
+
 			<br>
-			<a href="register.html" class="text-center">Sign Up</a>
+			<a href="signup.php" class="text-center">Sign Up</a>
+
+			<?php
+			if(isset($this -> vars['Error'])){
+				echo '<p style = "color:red">'.$this -> vars['Error'].'</p>';
+			}if(isset($this -> vars['Message'])){
+				echo '<p style = "color:green">'.$this -> vars['Message'].'</p>';
+			}
+				
+			?>
        </div><!-- /.login-box-body -->
 	  </div>
 			<footer>

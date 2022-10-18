@@ -1,0 +1,26 @@
+[
+    {
+        "User_id":2,
+        "course_id":1,
+        "course_name":"Introduction to Data Structures",
+        "course_image":"images/datastructures.jpg"
+    },
+    {
+        "User_id":2,
+        "course_id":2,
+        "course_name":"Compiler Theory",
+        "course_image":"images/compiler.png"
+    },
+    {
+        "User_id":2,
+        "course_id":7,
+        "course_name":"Introduction to Astronomy",
+        "course_image":"images/marine.jpg"
+    },
+    {
+        "User_id":2,
+        "course_id":5,
+        "course_name":"Introduction to Renewable Energy",
+        "course_image":"images/renewable.jpg"
+    }
+]

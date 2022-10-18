@@ -1,6 +1,6 @@
 <?php
 //Presentation Layer
-class view {
+class view implements ObserverInterface{
   private $vars = [];
   private $tpl = '';
 
@@ -35,11 +35,35 @@ class view {
   */
   public function addVar($name, $value){
     
-    if(empty($name) OR empty($value)){
-      throw new \InvalidArgumentException('Empty Input in one or more parameters');
+    if(empty($name)){
+      throw new \InvalidArgumentException('Empty name when calling addVar');
+    }
+
+    if(empty($value)){
+      throw new \InvalidArgumentException('Empty value when calling addVar');
     }
 
     $this -> vars[$name] = $value;
+  }
+
+  public function addVars(array $variables){
+    if(empty($variables)){
+        throw new \InvalidArgumentException('Empty Input');
+    }
+
+    foreach ($variables as $name=>$value){
+        $this -> vars[$name] = $value;
+    }
+  }
+
+  public function update(ObservableModel $o)
+  {
+    $records = $o -> giveUpdate();
+    //record is the mutidimentional array with the popular and recommended courses in it
+   
+    $this -> addVars($records);
+
+    $this -> display();
   }
 
   //function for testing purposes - because addvar and set template return void

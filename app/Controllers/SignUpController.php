@@ -1,6 +1,6 @@
 <?php
 //include '../../framework/SessionClass.php';
-class LoginController extends AbstractController{
+class SignUpController extends AbstractController{
     
 
     //'what makes the whole thing run'
@@ -11,7 +11,7 @@ class LoginController extends AbstractController{
         //no model needed only a view
 
         //step 2 - set template
-        $this -> view -> setTemplate(TEMPLATE_DIR . '/login.tpl.php');
+        $this -> view -> setTemplate(TEMPLATE_DIR . '/signup.tpl.php');
 
         //step 3 - display the page
         $this -> view -> display();

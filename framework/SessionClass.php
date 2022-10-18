@@ -1,7 +1,8 @@
 <?php
 class SessionClass{
-    private static $_sessionStarted = false;
     private $sess_arr;
+
+    private $access = ['Profile' => ['tester@comp3170.com','tester2@mail.com']];
     
 
     public function create(){
@@ -10,6 +11,13 @@ class SessionClass{
            //$this -> _sessionStarted = true; 
         //}
         
+    }
+
+    public function checkSess(){
+        if(isset($_SESSION['Email'])){
+            return true;
+        }
+        return false;
     }
 
     public function destroy(){
@@ -31,7 +39,11 @@ class SessionClass{
     }
 
     public function accesible($user, $page):bool{
-        return true;    
+        if(in_array($user,$this -> access[$page])){
+            return true;
+        }
+        
+        return false;
     }
 
     //all extra methods for testing purposes only (mock array)

@@ -1,11 +1,11 @@
 <?php
 
-interface ObserverbleInterface{
-    //public function attach(Observer);
+interface ObservableInterface{
+    public function attach(ObserverInterface $o);
 
-    //public function detach(Observer);
+    public function detach(ObserverInterface $o);
 
-   // public function notify();
+    public function notify();
 
 
 }

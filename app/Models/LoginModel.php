@@ -1,8 +1,8 @@
 <?php
 
-namespace Models;
 
-class LoginModel extends Model{
+
+class LoginModel extends ObservableModel{
 //override get record as the get all in the Model super class cannot work for users, only for courses
     public function getRecord(string $id): array{
         if(is_numeric($id) != 1){

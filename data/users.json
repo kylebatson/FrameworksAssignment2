@@ -1,8 +1,1 @@
-[
-    {
-        "User_id":1,
-        "Name":"Test User",
-        "Email":"tester@comp3170.com",
-        "Password":"$2y$10$oY7X8uGwiC0LbkYjjiUYrepQkpeQsXeZDDcmidt7ysHW1Hts9l7Oe"
-    }
-]
+[{"User_id":1,"Name":"kyle","Email":"kyle@gmail.com","Password":"$2y$10$oY7X8uGwiC0LbkYjjiUYrepQkpeQsXeZDDcmidt7ysHW1Hts9l7Oe"},{"User_id":2,"Name":"Test User","Email":"tester@comp3170.com","Password":"$2y$10$C\/RGpKPrtyjqg0B\/lcJc0OTDzXpwsiPea\/AXZhvUzTL3DjyATUvEe"},{"User_id":3,"Name":"tester2","Email":"tester2@mail.com","Password":"$2y$10$epqIbY2G5uuIhQJgezkmEO\/NdQuc1jDIWsEI89PR5KVDWiiRqSrhu"}]

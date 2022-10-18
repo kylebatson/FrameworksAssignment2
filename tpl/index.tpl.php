@@ -9,11 +9,24 @@
 		<nav>
 			<a href="/"><img src="images/logo.png" alt="Quwius"></a>
 			<ul>
-				<li><a href="CoursesController.php">Courses</a></li>
-				<li><a href="index.php?controller=Streams">Streams</a></li>
-				<li><a href="index.php?controller=AboutUs">About Us</a></li>
-				<li><a href="index.php?controller=Login">Login</a></li>
-				<li><a href="index.php?controller=SignUp">Sign Up</a></li>
+				<li><a href="courses.php">Courses</a></li>
+				<li><a href="streams.php">Streams</a></li>
+				<li><a href="aboutus.php">About Us</a></li>
+				<?php
+			
+				if (isset($_SESSION['Email'])){
+					echo '
+						<li><a href="logout.php">LogOut</a></li>
+					';
+				}else{
+					echo '
+						<li><a href="login.php">Login</a></li>
+					';
+				}
+				
+
+				?>
+				<li><a href="signup.php">Sign Up</a></li>
 			</ul>
 		</nav>
 		<div id="lead-in">
@@ -30,96 +43,122 @@
 		<header></header>
 		<main>
 			<h1>Most Popular</h1>
-			<div class="centered">
-				<section>
-				<a href="#"><img src="images/datastructures.jpg" alt="First Course" title="Data structures">
-				<span class="course-title">Introduction to Data Structures</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/compiler.png" alt="Second course" title="Compiler Theory">
-				<span class="course-title">Compiler Theory</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/software.jpg" alt="Third Course" title="Software Engineering">
-				<span class="course-title">Software Engineering</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/molecular.jpg" alt="Fourth Course" title="Molecular Biochemistry">
-				<span class="course-title">Molecular Biochemistry</span>
-				<span>Course Instructor</span></a>
-				</section>
-			</div>
-			<div class="centered">
-				<section>
-				<a href="#"><img src="images/renewable.jpg" alt="Fifth Course" title="Renewable Energy">
-				<span class="course-title">Renewable Energy</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/marine.jpg" alt="Sixth Course" title="Marine Biology">
-				<span class="course-title">Marine Biology</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/astronomy.jpg" alt="Seventh Course" title="Introduction to Astronomy">
-				<span class="course-title">Introduction to Astronomy</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/robotics.jpg" alt="Eighth Course" title="Robotics">
-				<span class="course-title">Robotics</span>
-				<span>Course Instructor</span></a>
-				</section>
-			</div>
+			
+					
+		
+		<?php
+
+		$popular = $this -> vars[1];
+		$recommended = $this -> vars[0];
+		?>
+
+		<div class="centered">
+		<?php
+		for($i = 0; $i < 4; $i++){
+			$img_src = '<img src = ' . $popular[$i]['course_image'] . '>';
+			$course_title = '<span class="course-title">'. $popular[$i]['course_name'] .'</span>';
+			
+
+			?>
+			
+		
+			<section> 
+				<a href="#">
+					<?php echo $img_src; ?>
+					<?php echo  $course_title?>
+					<span>Course Instructor</span>
+				</a>
+			</section>
+		<?php
+			
+		}
+
+		?>  
+
+		</div>
+
+
+		<div class="centered">
+		<?php
+		for($i = 4; $i < 8; $i++){
+			$img_src = '<img src = ' . $popular[$i]['course_image'] . '>';
+			$course_title = '<span class="course-title">'. $popular[$i]['course_name'] .'</span>';
+			
+
+			?>
+			
+		
+			<section> 
+				<a href="#">
+					<?php echo $img_src; ?>
+					<?php echo  $course_title?>
+					<span>Course Instructor</span>
+				</a>
+			</section>
+		<?php
+			
+		}
+
+		?>  
+
+		</div>
+
+
+	
 			
 			<h1>Learner Recommended</h1>
 			<div class="centered">
-				<section>
-				<a href="#"><img src="images/ai.jpg" alt="Learner first Course" title="Artificial Intelligence">
-				<span class="course-title">Artificial Intelligence</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/networksecurity.jpg" alt="Learner Second Course" title="Network and Security">
-				<span class="course-title">Networks &amp; Security</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/humandisease.jpg" alt="Learner Third Course" title="Biochemistry of Human Disease">
-				<span class="course-title">Biochemistry of Human Disease</span>
-				<span>Course Instructor</span></a>
-				</section>
-				<section>
-				<a href="#"><img src="images/genetics.jpg" alt="Learner Fourth Course" title="Introduction to Genetics">
-				<span class="course-title">Introduction to Genetics</span>
-				<span>Course Instructor</span></a>
-				</section>
-			</div>
-			<div class="centered">
-			<section>
-				<a href="#"><img src="images/mathematics.jpg" alt="Learner Fifth Course" title="Basic Mathematics">
-				<span class="course-title">Basic Mathematics</span>
-				<span>Course Instructor</span></a>
+		<?php
+		for($i = 0; $i < 4; $i++){
+			$img_src = '<img src = ' . $recommended[$i]['course_image'] . '>';
+			$course_title = '<span class="course-title">'. $recommended[$i]['course_name'] .'</span>';
+			
+
+			?>
+			
+		
+			<section> 
+				<a href="#">
+					<?php echo $img_src; ?>
+					<?php echo  $course_title?>
+					<span>Course Instructor</span>
+				</a>
 			</section>
-			<section>
-				<a href="#"><img src="images/electronics.jpg" alt="Learner Sixth Course" title="Introduction to Electronics">
-				<span class="course-title">Introduction to Electronics</span>
-				<span>Course Instructor</span></a>
+		<?php
+			
+		}
+
+		?>  
+
+		</div>
+
+
+		<div class="centered">
+		<?php
+		for($i = 4; $i < 8; $i++){
+			$img_src = '<img src = ' . $recommended[$i]['course_image'] . '>';
+			$course_title = '<span class="course-title">'. $recommended[$i]['course_name'] .'</span>';
+			
+
+			?>
+			
+		
+			<section> 
+				<a href="#">
+					<?php echo $img_src; ?>
+					<?php echo  $course_title?>
+					<span>Course Instructor</span>
+				</a>
 			</section>
-			<section>
-				<a href="#"><img src="images/oop.jpg" alt="Learner Seventh Course" title="Object-Oriented Programming">
-				<span class="course-title">Object-Oriented Programming</span>
-				<span>Course Instructor</span></a>
-			</section>
-			<section>
-				<a href="#"><img src="images/physics.jpg" alt="Learner Eigth Course" title="Computational Physics">
-				<span class="course-title">Computational Physics</span>
-				<span>Course Instructor</span></a>
-			</section>
-			</div>
+		<?php
+			
+		}
+
+		?>  
+
+		</div>
+
+
 			<footer>
 				<nav>
 					<ul>
