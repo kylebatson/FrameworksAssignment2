@@ -8,7 +8,7 @@ class IndexController extends AbstractController{
     public function run(){
         //step 1 - set view
         $this -> setView(new View()); 
-
+ 
         $this -> view -> setTemplate(TEMPLATE_DIR . '/index.tpl.php');
 
         //step 2 - set model
