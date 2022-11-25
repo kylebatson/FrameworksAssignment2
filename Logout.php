@@ -3,9 +3,9 @@ require 'autoloader.php';
 require 'config.php';
 
 
-$sess = new SessionClass();
-$sess -> create();
-$sess -> destroy();
+$auth = new Authenticate();
+$auth -> logOutUser();
+
 
 //And send back to index page
 header('Location: index.php');

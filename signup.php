@@ -4,4 +4,4 @@ require 'config.php';
 
 
 $controller = new SignUpController();
-$controller -> run();
+$controller -> start();

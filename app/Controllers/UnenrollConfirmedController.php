@@ -1,11 +1,11 @@
 <?php
 
-class IndexController extends AbstractController{
+class UnenrollConfirmedController extends AbstractController{
 
     //Step 1 - set the model
     protected function makeModel() : Model{
         //A model will be needed for the indec page so do as follows
-        return new IndexModel(DB_USER,DB_PASSWORD,DB_NAME,DB_HOST);
+        return new UnenrollModel(DB_USER,DB_PASSWORD,DB_NAME,DB_HOST);
     }
     
     
@@ -22,17 +22,18 @@ class IndexController extends AbstractController{
         $this -> model = $this -> makeModel();
         $this -> view = $this -> makeView();
 
+        //Create auth object to get user details
+        $auth = new Authenticate();
 
-        //get data from the database
-        $data = $this -> model -> findAll('courses', $_POST);
-        $instructors= $this -> model -> find('instructors', $_POST);
+        //run the deleter in the model - create array to pass into deleter
+        $array = array("email"=>$auth -> getUserInfo('em'),"course_num"=>$_GET['courseid'],"course_name"=>$_GET['coursename']);
+        $result = $this -> model -> del("user_courses",$array);
 
         //Now append data to the view using import vars (add all one time)
-        $this -> view -> importVars($data);
-        $this -> view -> importVar('instructors',$instructors);
+        $this -> view -> importVars($result);
 
         //Now set template
-        $this -> view -> registerTemplate(TEMPLATE_DIR . '/index.tpl.php'); // change variable name 
+        $this -> view -> registerTemplate(TEMPLATE_DIR . '/unenrollconfirmed.tpl.php');
 
         //And finally display the page
         $this -> view -> display();

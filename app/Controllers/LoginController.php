@@ -1,19 +1,30 @@
 <?php
-//include '../../framework/SessionClass.php';
+
 class LoginController extends AbstractController{
+
+    //Step 1 - set the model
+    protected function makeModel() : Model{
+        //return an empty base model since it will not be needed
+        return new Model(DB_USER,DB_PASSWORD,DB_NAME,DB_HOST);
+    }
     
+    
+    //Step 2 - set the view
+    protected function makeView(): View{
+        return new View();
+    }
 
+    
     //'what makes the whole thing run'
-    public function run(){
-        //step 1 - create the view and assign to view
-        $this -> setView(new View()); 
- 
-        //no model needed only a view
+    //Step 3 - Setup the start method (Set view and model and get any data from the model then pass to view and display)
+    public function start(){
+        //Set the view
+        $this -> view = $this -> makeView();
 
-        //step 2 - set template
-        $this -> view -> setTemplate(TEMPLATE_DIR . '/login.tpl.php');
+        //Now set template
+        $this -> view -> registerTemplate(TEMPLATE_DIR . '/login.tpl.php');
 
-        //step 3 - display the page
+        //And finally display the page
         $this -> view -> display();
     }
 

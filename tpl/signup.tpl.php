@@ -20,7 +20,7 @@
 		   <div class="register-box">
 			<div class="register-box-body">
 			<p class="login-box-msg">Sign Up - Feed Your Curiosity</p>
-        <form action="register.php" method="post">
+        <form action="validate.php" method="post">
 			<?php
 				if(isset($this -> vars['Error'])){
 					echo '<p style = "color:red">'.$this -> vars['Error'].'</p>';

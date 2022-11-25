@@ -4,4 +4,4 @@ require 'config.php';
 
 
 $controller = new LoginController();
-$controller -> run();
+$controller -> start();

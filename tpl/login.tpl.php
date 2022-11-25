@@ -21,7 +21,7 @@
 			<div class="login-box-body">
 			<p class="login-box-msg">Be Curious - Sign In</p>
 			
-			<form action="authenticate.php" method="POST">
+			<form action="signin.php" method="POST">
 			  <div class="form-group has-feedback">
 				<input type="text" name="email" class="form-control" placeholder="Email"/>
 			  </div>

@@ -3,5 +3,6 @@ require 'autoloader.php';
 require 'config.php';
 
 
-$controller = new IndexController();
+
+$controller = new QuestionUnenrollController();
 $controller -> start();

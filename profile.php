@@ -5,4 +5,4 @@ require 'config.php';
 
 
 $controller = new ProfileController();
-$controller -> run();
+$controller -> start();

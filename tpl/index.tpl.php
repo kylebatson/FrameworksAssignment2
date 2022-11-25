@@ -43,20 +43,20 @@
 		<header></header>
 		<main>
 			<h1>Most Popular</h1>
-			
-					
-		
-		<?php
-
-		$popular = $this -> vars[1];
-		$recommended = $this -> vars[0];
-		?>
+								
+			<?php
+				$popular = $this -> vars[1];
+				$recommended = $this -> vars[0];	
+				$instructors = $this -> vars['instructors'];	
+				
+			?>
 
 		<div class="centered">
 		<?php
 		for($i = 0; $i < 4; $i++){
-			$img_src = '<img src = ' . $popular[$i]['course_image'] . '>';
+			$img_src = '<img src = images/' . $popular[$i]['course_image'] . '>';
 			$course_title = '<span class="course-title">'. $popular[$i]['course_name'] .'</span>';
+			$course_instructor = '<span>'. $instructors[$popular[$i]['course_id']-1]['instructor_name'] .'</span>';
 			
 
 			?>
@@ -66,7 +66,8 @@
 				<a href="#">
 					<?php echo $img_src; ?>
 					<?php echo  $course_title?>
-					<span>Course Instructor</span>
+					<?php echo  $course_instructor?>
+
 				</a>
 			</section>
 		<?php
@@ -81,8 +82,9 @@
 		<div class="centered">
 		<?php
 		for($i = 4; $i < 8; $i++){
-			$img_src = '<img src = ' . $popular[$i]['course_image'] . '>';
+			$img_src = '<img src = images/' . $popular[$i]['course_image'] . '>';
 			$course_title = '<span class="course-title">'. $popular[$i]['course_name'] .'</span>';
+			$course_instructor = '<span>'. $instructors[$popular[$i]['course_id']-1]['instructor_name'] .'</span>';
 			
 
 			?>
@@ -92,7 +94,8 @@
 				<a href="#">
 					<?php echo $img_src; ?>
 					<?php echo  $course_title?>
-					<span>Course Instructor</span>
+					<?php echo  $course_instructor?>
+
 				</a>
 			</section>
 		<?php
@@ -103,15 +106,13 @@
 
 		</div>
 
-
-	
-			
 			<h1>Learner Recommended</h1>
 			<div class="centered">
 		<?php
 		for($i = 0; $i < 4; $i++){
-			$img_src = '<img src = ' . $recommended[$i]['course_image'] . '>';
+			$img_src = '<img src = images/' . $recommended[$i]['course_image'] . '>';
 			$course_title = '<span class="course-title">'. $recommended[$i]['course_name'] .'</span>';
+			$course_instructor = '<span>'. $instructors[$recommended[$i]['course_id']-1]['instructor_name'] .'</span>';
 			
 
 			?>
@@ -121,7 +122,8 @@
 				<a href="#">
 					<?php echo $img_src; ?>
 					<?php echo  $course_title?>
-					<span>Course Instructor</span>
+					<?php echo  $course_instructor?>
+
 				</a>
 			</section>
 		<?php
@@ -136,8 +138,9 @@
 		<div class="centered">
 		<?php
 		for($i = 4; $i < 8; $i++){
-			$img_src = '<img src = ' . $recommended[$i]['course_image'] . '>';
+			$img_src = '<img src = images/' . $recommended[$i]['course_image'] . '>';
 			$course_title = '<span class="course-title">'. $recommended[$i]['course_name'] .'</span>';
+			$course_instructor = '<span>'. $instructors[$recommended[$i]['course_id']-1]['instructor_name'] .'</span>';
 			
 
 			?>
@@ -147,7 +150,8 @@
 				<a href="#">
 					<?php echo $img_src; ?>
 					<?php echo  $course_title?>
-					<span>Course Instructor</span>
+					<?php echo  $course_instructor?>
+
 				</a>
 			</section>
 		<?php

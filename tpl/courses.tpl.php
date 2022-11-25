@@ -19,22 +19,33 @@
 		<h1>Courses</h1>
 		<ul class="course-list">
             <?php
-                for($i = 0; $i < count($this -> vars);$i++){
+
+		
+				$instructors = $this -> vars['instructors'];	
+				$faculty_dept_ids = $this -> vars['faculty_dept_ids'];
+				$departments = $this -> vars['faculty'];
+
+
+                for($i = 0; $i < count($this -> vars['data']);$i++){
+					$course_instructor = $instructors[$this -> vars['data'][$i]['course_id']-1]['instructor_name'];
+					$fac_id = $faculty_dept_ids[$i]['faculty_dept_id'] -1;
+					$department = $departments[$fac_id]['faculty_dept_name'];
+				
 					echo '
                         <li>
                             <div>
-                                <a href="#"><img src="'. $this -> vars[$i]['course_image'] .'" alt="course image"></a>
+                                <a href="#"><img src=" images/'. $this -> vars['data'][$i]['course_image'] .'" alt="course image"></a>
                             </div>
             
                             <div>
-                            <a href="#"><span class="faculty-department">Faculty or Department</span>	
-                                <span class="course-title">'. $this -> vars[$i]['course_name'] .'</span>
-                                <span class="instructor">Course Instructor</span></a>
+                            <a href="#"><span class="faculty-department">'.$department.'</span>	
+                                <span class="course-title">'. $this -> vars['data'][$i]['course_name'] .'</span>
+								<span>'. $course_instructor .'</span>
                             </div>
             
                             <div>
                                 <p>Get Curious.</p>
-                                <a href="#" class="startnow-button startnow-btn">Start Now!</a>
+                                <a href="enroll.php?courseid='. $this -> vars['data'][$i]['course_id'] .'&coursename='. $this -> vars['data'][$i]['course_name'].'  " class="startnow-button startnow-btn">Regisiter!</a>
                             </div>
                         </li>
                     ';

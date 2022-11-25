@@ -1,14 +1,15 @@
 <?php
 //Presentation Layer
-class view implements ObserverInterface{
+class View{
   private $vars = [];
-  private $tpl = '';
+  private string $template = '';
 
   /*
     This method assigns the HTML file to the 
     associated business layer (the model) to display the resulting web page
   */
-  public function setTemplate(string $filename){
+  public function registerTemplate(string $filename){
+    
     if (empty($filename)){
         throw new \InvalidArgumentException('View Error: No template file given');
     }
@@ -17,7 +18,7 @@ class view implements ObserverInterface{
         throw new \InvalidArgumentException('View Error: file does no exist');
     }
 
-    $this -> tpl = $filename;
+    $this -> template = $filename;
   }
 
    /*
@@ -26,15 +27,15 @@ class view implements ObserverInterface{
   */  
   public function display(){
     extract($this -> vars);
-    require $this -> tpl;
+    require $this -> template;
   }
   
   /*
     To transfer data from any data store –
     database, file, etc. – to the business layer (the model) for processing
   */
-  public function addVar($name, $value){
-    
+  public function importVar($name, $value){
+    //check if variable name is allowed
     if(empty($name)){
       throw new \InvalidArgumentException('Empty name when calling addVar');
     }
@@ -46,7 +47,8 @@ class view implements ObserverInterface{
     $this -> vars[$name] = $value;
   }
 
-  public function addVars(array $variables){
+  public function importVars(array $variables){
+    //check if variable name is allowed
     if(empty($variables)){
         throw new \InvalidArgumentException('Empty Input');
     }
@@ -55,45 +57,6 @@ class view implements ObserverInterface{
         $this -> vars[$name] = $value;
     }
   }
-
-  public function update(ObservableModel $o)
-  {
-    $records = $o -> giveUpdate();
-    //record is the mutidimentional array with the popular and recommended courses in it
-   
-    $this -> addVars($records);
-
-    $this -> display();
-  }
-
-  //function for testing purposes - because addvar and set template return void
-  public function getVars(){
-    return $this -> vars;
-  }
-
-  public function getTpl(){
-    return $this -> tpl;
-  }
-
-  
-
-  
-  /*
-  Same as above but pass mutiple variables for storage 
-  */
-  /*
-  public function addVars(array $variables){
-    if(empty($variables)){
-        trigger_error('<b>View Error:</b> Empty Varibale List'); 
-    }
-
-    foreach ($variables as $name=>$value){
-        $this -> vars[$name] = $value;
-    }
-  }
-  */
-  
- 
-  
+    
 }
 ?>
